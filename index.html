@@ -384,9 +384,15 @@
 		
 		<p>
 			<ul>
-				<li>11 NOPEMBER 2017 : BATAS AKHIR PENGIRIMAN FULL PAPER</li>
-				<li>25 NOPEMBER 2017 : BATAS AKHIR PEMBAYARAN SNETO 2017 DAN BATAS AKHIR PENGIRIMAN PERBAIKAN FULL PAPER</li>
-				<li><b>16 DESEMBER 2017 JAM 08.00 : PELAKSANAAN SNETO 2017</b></li>
+				<li>11 NOPEMBER 2017<span style="color: #999999;">[<span data-countdown="2017/10/11"></span>]</span><br/>
+			  		<span>BATAS AKHIR PENGIRIMAN FULL PAPER</span>
+				</li>
+				<li>25 NOPEMBER 2017<span style="color: #999999;">[<span data-countdown="2017/10/25"></span>]</span><br/>
+					<span>BATAS AKHIR PEMBAYARAN SNETO 2017 DAN BATAS AKHIR PENGIRIMAN PERBAIKAN FULL PAPER</span>
+				</li>
+				<li><b>16 DESEMBER 2017 JAM 08.00<span style="color: #999999;">[<span data-countdown="2017/12/16 08:00:00"></span>]</span><br/>
+					<span>PELAKSANAAN SNETO 2017</span>
+				</b></li>
 			</ul>
 		</p>
     </div>
@@ -426,26 +432,34 @@
     <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 	
-	<!-- Plugin JavaScript -->
+    <!-- Plugin JavaScript -->
     <script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+    
+    <!-- jQuery.countdown -->
+    <script src="vendor/jQuery.countdown/dist/jquery.countdown.js"></script>
+ 
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
 	<script>
 	  function initMap() {
 		var myLatLng = {lat: -6.897702, lng: 107.635727};
-
 		var map = new google.maps.Map(document.getElementById('map-lokasi-acara'), {
 		  zoom: 17,
 		  center: myLatLng
 		});
-
 		var marker = new google.maps.Marker({
 		  position: myLatLng,
 		  map: map,
 		  title: 'Hello World!'
 		});
 	  }
+	$('[data-countdown]').each(function() {
+	  var $this = $(this), finalDate = $(this).data('countdown');
+	  $this.countdown(finalDate, function(event) {
+	    $this.html(event.strftime('%D Hari %H:%M:%S'));
+	  });
+	});
 	</script>
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmW0N4DxQbC1G0I1L9Um82FaeJbz5POOU&callback=initMap">
